@@ -88,7 +88,6 @@ require_once('../modals/logout.php'); ?>
     /* Date picker */
     $('.datepicker').datepicker({
         format: 'mm/dd/yyyy',
-        startDate: '-7d'
     });
 
     /* Filter DP */
