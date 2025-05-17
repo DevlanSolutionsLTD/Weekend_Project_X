@@ -293,7 +293,7 @@ require_once('../partials/head.php');
                                 <div class="info-box card-outline card-success">
                                     <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-money-check-alt"></i></span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Projected Revenue For <?php echo date('M Y', strtotime('-1 month')); ?></span>
+                                        <span class="info-box-text">Projected Revenue For <?php echo date('M Y', strtotime('+1 month')); ?></span>
                                         <span class="info-box-number">
                                             Kes <?php echo number_format($projected_amount, 2); ?>
                                         </span>
@@ -309,9 +309,9 @@ require_once('../partials/head.php');
                                 <div class="info-box card-outline card-success">
                                     <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-wallet"></i></span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Received Revenue For <?php echo date('M Y', strtotime('-1 month')); ?></span>
+                                        <span class="info-box-text">Received Revenue For <?php echo date('M Y'); ?></span>
                                         <span class="info-box-number">
-                                            Kes <?php echo number_format($payment_amount, 2); ?>
+                                            Kes <?php echo number_format($received_amount, 2); ?>
                                         </span>
                                     </div>
                                     <!-- /.info-box-content -->

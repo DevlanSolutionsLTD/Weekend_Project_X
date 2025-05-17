@@ -141,16 +141,15 @@ if ($_SESSION['user_type'] == 'Administrator') {
     $stmt->fetch();
     $stmt->close();
 
-    /* Get 30 days before today */
-    $start_date = date('m/01/Y', strtotime('-1 month'));
-    $end_date = date('m/01/Y', strtotime($start_date . '+1 month'));
+    $start_date = date('m/01/Y');       
+    $end_date = date('m/t/Y'); 
 
-
-    /* Received payment */
-    $query = "SELECT SUM(payment_amount) FROM payments WHERE payment_date BETWEEN '{$start_date}' AND '{$end_date}'";
+    // Prepared statement
+    $query = "SELECT SUM(payment_amount) FROM payments WHERE payment_date BETWEEN ? AND ?";
     $stmt = $mysqli->prepare($query);
+    $stmt->bind_param("ss", $start_date, $end_date);
     $stmt->execute();
-    $stmt->bind_result($payment_amount);
+    $stmt->bind_result($received_amount);
     $stmt->fetch();
     $stmt->close();
 } else if ($_SESSION['user_type'] == 'Caretaker') {
